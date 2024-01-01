@@ -1,4 +1,4 @@
-import { configure } from 'vee-validate';
+import {configure} from 'vee-validate';
 
 const config = {
     classes: {
