@@ -1,6 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Login from '@/views/Login'
 import LayoutAuth from '@/layouts/Auth'
+import Register from "@/views/Register";
+import VerifyEmail from "@/views/VerifyEmail";
 
 const routes = [
     {
@@ -21,7 +23,18 @@ const routes = [
             {
                 path: '',
                 name: 'register',
-                component: Login
+                component: Register
+            }
+        ]
+    },
+    {
+        path: '/verify-email',
+        component: LayoutAuth,
+        children: [
+            {
+                path: '',
+                name: 'verifyEmail',
+                component: VerifyEmail
             }
         ]
     },
