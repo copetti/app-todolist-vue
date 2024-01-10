@@ -7,6 +7,10 @@ export default {
     LoginInvalidException: 'Ops! Invalid E-mail And/Or Password',
     UserHasBeenTakenException: 'Ops! This user has been taken',
     VerifyEmailTokenInvalidException: 'Ops! This token is not valid',
+    ResetPasswordTokenInvalidException: 'Ops! Reset Password Token not valid',
     RegisterSucceeded: 'User Created Successfully!!!',
     EmailVerifiedSucceeded: 'Email Verified Successfully',
+    RecoveryEmailSucceeded: 'We sent an Email with your credentials',
+    UserNotFoundException: 'Ops! This user does\'t exists !!!',
+    ResetPasswordSucceeded: 'Password reset successfully.',
 }

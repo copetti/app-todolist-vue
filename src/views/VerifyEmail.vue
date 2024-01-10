@@ -1,6 +1,6 @@
 <template>
     <svg
-        v-if="spinner.login"
+        v-if="spinner.verify_email"
          aria-hidden="true"
          role="status"
          class="inline w-4 h-4 me-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,6 +53,9 @@ export default {
 
     methods:{
         verifyEmail(){
+
+            this.spinner.verify_email = true;
+
             axios.post('http://127.0.0.1:8000/api/v1/verify-email', {token : this.token}).then(()=>{
                 this.response.color = 'green';
                 this.response.message = message['EmailVerifiedSucceeded'];
