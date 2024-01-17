@@ -96,7 +96,7 @@
 <script>
 
 import {LoginMenu} from "@/components/Auth/LoginMenu";
-import Cookie from 'js-cookie';
+import Cookie from '@/service/cookie';
 import axios from "axios";
 import message from "@/utils/messages";
 export default {
@@ -108,8 +108,8 @@ export default {
 
     data() {
         return {
-            email: '',
-            password: '',
+            email: 'andrebarros@gmail.com',
+            password: '123123',
             response: {
                 color: '',
                 message: ''
@@ -146,12 +146,13 @@ export default {
 
             axios.post('http://127.0.0.1:8000/api/v1/login', payload).then((response) => {
                 const token = `${response.data.token_type} ${response.data.access_token}`
-                Cookie.set('_todolist_token', token, {expires: 30})
-                this.$store.commit('user/STORE_USER', response.data.data)
+                Cookie.setToken(token);
+                this.$store.commit('user/STORE_USER', response.data.data);
+                this.$router.push({ name : 'index' });
             }).catch((e)=>{
                 const errorCode = e?.response?.data?.error || 'ServerError';
                 this.response.color = 'red';
-                this.response.message = message[errorCode]
+                this.response.message = message[errorCode];
             }).finally(()=>{
                 this.spinner.register = false;
             });

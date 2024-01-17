@@ -5,10 +5,32 @@ import Register from "@/views/Register";
 import VerifyEmail from "@/views/VerifyEmail";
 import ForgotPassword from "@/views/ForgotPassword";
 import ResetPassword from "@/views/ResetPassword";
+import LayoutDefault from "@/layouts/Default";
+import Home from "@/views/Home";
+import Guard from "@/service/middleware";
+import Profile from "@/views/Profile";
 
 const routes = [
     {
+        path: '/',
+        beforeEnter: Guard.redirectIfNotAuthenticated,
+        component: LayoutDefault,
+        children: [
+            {
+                path: '',
+                name: 'index',
+                component: Home
+            },
+            {
+                path: 'profile',
+                name: 'profile',
+                component: Profile
+            }
+        ]
+    },
+    {
         path: '/login',
+        beforeEnter: Guard.redirectIfAuthenticated,
         component: LayoutAuth,
         children: [
             {
@@ -61,8 +83,7 @@ const routes = [
                 component: ResetPassword
             }
         ]
-    }
-
+    },
 ]
 
 const router = createRouter({

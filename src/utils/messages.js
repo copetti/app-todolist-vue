@@ -9,6 +9,7 @@ export default {
     VerifyEmailTokenInvalidException: 'Ops! This token is not valid',
     ResetPasswordTokenInvalidException: 'Ops! Reset Password Token not valid',
     RegisterSucceeded: 'User Created Successfully!!!',
+    UpdateSucceeded: 'User Data Update Successful!!!',
     EmailVerifiedSucceeded: 'Email Verified Successfully',
     RecoveryEmailSucceeded: 'We sent an Email with your credentials',
     UserNotFoundException: 'Ops! This user does\'t exists !!!',

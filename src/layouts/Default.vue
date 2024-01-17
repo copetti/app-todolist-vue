@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import TheHeader from '@/components/Partials/TheHeader'
+import TheHeader from '@/components/Partials/TheHeader';
 
 export default {
     name: 'Default',
